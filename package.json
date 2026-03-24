@@ -1,0 +1,44 @@
+{
+  "name": "ghk_7488_6",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build --base=/ghk_7488_6/",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@alfalab/core-components": "49.10.0",
+    "@alfalab/icons-glyph": "2.275.0",
+    "@alfalab/icons-rocky": "1.21.0",
+    "@vanilla-extract/css": "1.19.1",
+    "@vanilla-extract/recipes": "0.5.7",
+    "@vanilla-extract/vite-plugin": "5.2.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-gauge-chart": "^0.5.1",
+    "swiper": "12.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@typescript-eslint/eslint-plugin": "8.57.1",
+    "@typescript-eslint/parser": "8.57.1",
+    "@vitejs/plugin-react": "6.0.1",
+    "eslint": "9.39.4",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "eslint-plugin-react-refresh": "0.5.2",
+    "typescript": "5.9.3",
+    "vite": "8.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "core-js",
+      "esbuild",
+      "swiper"
+    ]
+  }
+}
