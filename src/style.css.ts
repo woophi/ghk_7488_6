@@ -286,6 +286,12 @@ globalStyle(`${gaugeWrap} path`, {
   strokeLinecap: 'butt',
 });
 
+const cellAnswer = style({
+  borderRadius: '16px',
+  padding: '16px',
+  backgroundColor: '#f2f3f5',
+});
+
 export const appSt = {
   bottomBtn,
   container,
@@ -323,4 +329,5 @@ export const appSt = {
   multiplierNegative,
   fireIcon,
   emptyState,
+  cellAnswer,
 };
