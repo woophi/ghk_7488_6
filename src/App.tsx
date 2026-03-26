@@ -205,6 +205,12 @@ export const App = () => {
   const filteredQuestions =
     activeCategory === CATEGORY_ALL ? questions : questions.filter(({ category }) => category === activeCategory);
 
+  const submit = () => {
+    window.location.replace(
+      'alfabank://sdui_screen?screenName=InvestmentLongread&fromCurrent=true&shouldUseBottomSafeArea=true&endpoint=v1/invest-main-screen-view/investment-longread/98955%3flocation=AM%26campaignCode=GH',
+    );
+  };
+
   if (view === 'final') {
     return (
       <>
@@ -235,7 +241,7 @@ export const App = () => {
           ))}
         </div>
         <div className={appSt.bottomBtn}>
-          <Button type="button" block view="primary" disabled={!finalAnswer}>
+          <Button onClick={submit} type="button" block view="primary" disabled={!finalAnswer}>
             Продолжить
           </Button>
         </div>
