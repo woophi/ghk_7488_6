@@ -85,7 +85,10 @@ const AnswerButton = ({ question, answer, setAnswerData }: AnswerButtonProps) =>
     <button
       className={tone === 'positive' ? appSt.answerButtonPositive : appSt.answerButtonNegative}
       type="button"
-      onClick={() => setAnswerData({ question, answer })}
+      onClick={() => {
+        window.gtag('event', '7488_answer_click', { question: question.question, answer, var: 'var6' });
+        setAnswerData({ question, answer });
+      }}
     >
       <Typography.Text tag="span" view="primary-medium" weight="bold" color={tone === 'positive' ? 'positive' : 'negative'}>
         {getAnswerText(answer)}
@@ -167,7 +170,14 @@ export const App = () => {
     if (!LS.getItem(LSKeys.UserId, null)) {
       LS.setItem(LSKeys.UserId, Date.now());
     }
+    window.gtag('event', '7488_selection_impression', { var: 'var6' });
   }, []);
+
+  useEffect(() => {
+    if (view === 'final') {
+      window.gtag('event', '7488_quiz_impression', { var: 'var6' });
+    }
+  }, [view]);
 
   useEffect(() => {
     let isMounted = true;
@@ -206,6 +216,7 @@ export const App = () => {
     activeCategory === CATEGORY_ALL ? questions : questions.filter(({ category }) => category === activeCategory);
 
   const submit = () => {
+    window.gtag('event', '7488_continue_click', { var: 'var6', answer: finalAnswer });
     window.location.replace(
       'alfabank://sdui_screen?screenName=InvestmentLongread&fromCurrent=true&shouldUseBottomSafeArea=true&endpoint=v1/invest-main-screen-view/investment-longread/98955%3flocation=AM%26campaignCode=GH',
     );
