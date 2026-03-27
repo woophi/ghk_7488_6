@@ -282,7 +282,7 @@ export const App = () => {
           Используй свой кэшбэк
         </Typography.Text>
         <Typography.Text tag="p" view="primary-medium" defaultMargins={false} className={appSt.heroText}>
-          Ставь рубли кэшбека на реальные события. Угадал — получаешь больше баллов.
+          Ставь кэшбек на реальные события. Угадал — получаешь больше баллов.
         </Typography.Text>
       </div>
 
