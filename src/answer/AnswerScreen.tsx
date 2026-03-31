@@ -183,14 +183,14 @@ export const AnswerScreen = ({
               minority={1}
               bold={false}
               min={inputChips[0]}
-              suffix="₽ кэшбека"
+              suffix="₽ кешбэка"
             />
 
             <Swiper slidesPerView="auto" spaceBetween={8} style={{ marginTop: '.5rem' }}>
               {inputChips.map(category => (
                 <SwiperSlide key={category} className={appSt.filterSlide}>
                   <Tag size="xxs" view="filled" shape="rectangular" onClick={() => setSum(category)}>
-                    {category} ₽ кэшбека
+                    {category} ₽ кешбэка
                   </Tag>
                 </SwiperSlide>
               ))}
