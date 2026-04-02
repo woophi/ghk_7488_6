@@ -122,6 +122,9 @@ const QuestionCard = ({
 }) => {
   const Icon = categoryIcons[question.category as keyof typeof categoryIcons] ?? StarMIcon;
 
+  if (!question?.question) {
+    return null;
+  }
   return (
     <article className={appSt.card}>
       <div className={appSt.cardHead}>
