@@ -158,6 +158,7 @@ const QuestionCard = ({
 };
 
 export const App = () => {
+  const [loading, setLoading] = useState(false);
   const { questions } = useStocksData();
   const [activeCategory, setActiveCategory] = useState(CATEGORY_ALL);
   const [view, setView] = useState<'final' | 'answer'>('answer');
@@ -219,10 +220,13 @@ export const App = () => {
     activeCategory === CATEGORY_ALL ? questions : questions.filter(({ category }) => category === activeCategory);
 
   const submit = () => {
+    setLoading(true);
     window.gtag('event', '7488_continue_click', { var: 'var6', answer: finalAnswer });
-    window.location.replace(
-      'alfabank://sdui_screen?screenName=InvestmentLongread&fromCurrent=true&shouldUseBottomSafeArea=true&endpoint=v1/invest-main-screen-view/investment-longread/98955%3flocation=AM%26campaignCode=GH',
-    );
+    setTimeout(() => {
+      window.location.replace(
+        'alfabank://sdui_screen?screenName=InvestmentLongread&fromCurrent=true&shouldUseBottomSafeArea=true&endpoint=v1/invest-main-screen-view/investment-longread/98955%3flocation=AM%26campaignCode=GH',
+      );
+    }, 3500);
   };
 
   if (view === 'final') {
@@ -255,7 +259,7 @@ export const App = () => {
           ))}
         </div>
         <div className={appSt.bottomBtn}>
-          <Button onClick={submit} type="button" block view="primary" disabled={!finalAnswer}>
+          <Button onClick={submit} type="button" block view="primary" disabled={!finalAnswer} loading={loading}>
             Продолжить
           </Button>
         </div>
